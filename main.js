@@ -5,8 +5,8 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1400,
+    height: 900,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -14,7 +14,8 @@ function createWindow () {
 
   const view = new BrowserView()
   mainWindow.setBrowserView(view)
-  view.setBounds({x: 0, y: 0, width: 800, height: 600})
+  view.setBounds({x: 0, y: 0, width: 1400, height: 900})
+  view.setAutoResize({width: true, height: true, horizontal: true, vertical: true})
   view.webContents.loadURL('https://www.twitch.tv')
 
   // and load the index.html of the app.
